@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark To CSV For Notion</title>
+    <script type="module">
+      import { readFile, removeExtension } from './modules/index.js';
+
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const changeFile = () => {
+          const file = input.files[0];
+
+          if (file.type === 'text/html') {
+            const reader = new FileReader();
+            reader.fileName = removeExtension(file.name);
+            reader.addEventListener('load', readFile);
+            reader.readAsText(file);
+          } else {
+            alert('No has introducido un html');
+          }
+        };
+
+        const input = document.querySelector('input[type=file]');
+        input.addEventListener('change', changeFile);
+      });
+    </script>
+  </head>
+  <body>
+    <input type="file" accept=".html" />
+  </body>
+</html>
