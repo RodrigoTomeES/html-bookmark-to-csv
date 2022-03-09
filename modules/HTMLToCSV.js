@@ -15,6 +15,7 @@ export class HTMLToCSV {
     const contents = Array.from(nodeList);
 
     // extract basic info from FF bookmarks - name, url, date added - and sort them by name ASC
+    // category MUST be a let var for maintain the folder name in subelements
     let category = '';
     const output = contents
       .map((a) => {
