@@ -8,6 +8,6 @@ has my own dev bookmarks.
 
 To use the website you only need to drag and drop the file in the input or select it and automatically will be download the bookmark in CSV.
 
-![Notion example](./img/notion.jpg 'Notion')
+![Notion example](./assets/img/notion.jpg 'Notion')
 
 The code of this repo uses this [gist](https://gist.github.com/ruucm/83fdd36c862a49ba35475c75aa360417) as a base.
