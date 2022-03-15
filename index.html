@@ -10,15 +10,19 @@
 
       document.addEventListener('DOMContentLoaded', (event) => {
         const changeFile = () => {
-          const file = input.files[0];
+          const files = input.files;
 
-          if (file.type === 'text/html') {
-            const reader = new FileReader();
-            reader.fileName = removeExtension(file.name);
-            reader.addEventListener('load', readFile);
-            reader.readAsText(file);
-          } else {
-            alert('No has introducido un html');
+          for (let i = 0; i < files.length; i++) {
+            const file = files.item(i);
+
+            if (file.type === 'text/html') {
+              const reader = new FileReader();
+              reader.fileName = removeExtension(file.name);
+              reader.addEventListener('load', readFile);
+              reader.readAsText(file);
+            } else {
+              alert("You don't enter a html file");
+            }
           }
         };
 
@@ -34,6 +38,6 @@
       and automatically will be download the bookmark in CSV.
     </p>
     <p>Later you can import it as table in Notion.</p>
-    <input type="file" accept=".html" />
+    <input type="file" accept=".html" multiple />
   </body>
 </html>
